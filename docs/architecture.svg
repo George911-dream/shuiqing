@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="330" viewBox="0 0 920 330" font-family="Segoe UI, Microsoft YaHei, sans-serif">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1d4ed8"/>
+      <stop offset="1" stop-color="#0ea5e9"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="920" height="330" fill="#f5f7fa"/>
+
+  <!-- title -->
+  <text x="24" y="34" font-size="16" font-weight="700" fill="#1f2937">税擎 (ShuiQing) · 工作流程架构</text>
+
+  <!-- Row 1: ingestion -->
+  <g>
+    <rect x="24" y="60" width="150" height="70" rx="10" fill="#ffffff" stroke="#e3e8ef"/>
+    <text x="99" y="90" text-anchor="middle" font-size="13" font-weight="600" fill="#1f2937">资料目录</text>
+    <text x="99" y="110" text-anchor="middle" font-size="11" fill="#6b7280">Markdown 文档</text>
+  </g>
+  <line x1="174" y1="95" x2="214" y2="95" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="214" y="60" width="170" height="70" rx="10" fill="#ffffff" stroke="#e3e8ef"/>
+    <text x="299" y="86" text-anchor="middle" font-size="13" font-weight="600" fill="#1f2937">解析器</text>
+    <text x="299" y="105" text-anchor="middle" font-size="11" fill="#6b7280">按 ## 切分文档</text>
+    <text x="299" y="120" text-anchor="middle" font-size="11" fill="#6b7280">解析来源/文号/日期</text>
+  </g>
+  <line x1="384" y1="95" x2="424" y2="95" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="424" y="60" width="200" height="70" rx="10" fill="#ffffff" stroke="#e3e8ef"/>
+    <text x="524" y="86" text-anchor="middle" font-size="13" font-weight="600" fill="#1f2937">倒排索引</text>
+    <text x="524" y="105" text-anchor="middle" font-size="11" fill="#6b7280">中文 bigram + 英文/数字</text>
+    <text x="524" y="120" text-anchor="middle" font-size="11" fill="#6b7280">TF‑IDF 打分</text>
+  </g>
+
+  <!-- Row 2: serving -->
+  <g>
+    <rect x="424" y="175" width="200" height="64" rx="10" fill="#eef2ff" stroke="#dbeafe"/>
+    <text x="524" y="200" text-anchor="middle" font-size="13" font-weight="600" fill="#1d4ed8">检索 API</text>
+    <text x="524" y="219" text-anchor="middle" font-size="11" fill="#6b7280">/api/search · /api/doc</text>
+  </g>
+  <line x1="524" y1="130" x2="524" y2="175" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="214" y="175" width="170" height="64" rx="10" fill="#ffffff" stroke="#e3e8ef"/>
+    <text x="299" y="200" text-anchor="middle" font-size="13" font-weight="600" fill="#1f2937">Web 工作台</text>
+    <text x="299" y="219" text-anchor="middle" font-size="11" fill="#6b7280">检索 / 浏览 / 问答</text>
+  </g>
+  <line x1="424" y1="207" x2="384" y2="207" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Row 3: RAG -->
+  <g>
+    <rect x="424" y="262" width="200" height="50" rx="10" fill="#ffffff" stroke="#e3e8ef"/>
+    <text x="524" y="285" text-anchor="middle" font-size="13" font-weight="600" fill="#1f2937">RAG 组装上下文</text>
+    <text x="524" y="302" text-anchor="middle" font-size="11" fill="#6b7280">取 Top‑K 资料 + 系统提示</text>
+  </g>
+  <line x1="524" y1="239" x2="524" y2="262" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="664" y="262" width="232" height="50" rx="10" fill="url(#g1)"/>
+    <text x="780" y="285" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">DeepSeek API</text>
+    <text x="780" y="302" text-anchor="middle" font-size="11" fill="#dbeafe">流式回答 + [1][2] 引用</text>
+  </g>
+  <line x1="624" y1="287" x2="664" y2="287" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- side note: POST /api/ask -->
+  <g>
+    <rect x="664" y="175" width="232" height="64" rx="10" fill="#ffffff" stroke="#e3e8ef"/>
+    <text x="780" y="200" text-anchor="middle" font-size="13" font-weight="600" fill="#1f2937">POST /api/ask</text>
+    <text x="780" y="219" text-anchor="middle" font-size="11" fill="#6b7280">SSE 流式返回</text>
+  </g>
+  <line x1="780" y1="239" x2="780" y2="262" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+</svg>

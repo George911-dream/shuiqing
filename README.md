@@ -7,6 +7,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 ![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen)
 
+[中文](./README.md) · [English](./README.en.md)
+
 ---
 
 ## 特性
@@ -17,6 +19,10 @@
 - **AI 问答（RAG）**：先检索相关依据，再交给 DeepSeek 汇总作答，答案**流式输出**，并给出 `[1][2]` 引用来源，点击即可回看原文。
 - **本地优先**：API Key 仅保存在浏览器本地（localStorage），不落盘、不上传第三方（仅转发给 DeepSeek 官方接口）。
 - **轻量索引**：中文二元组（bigram）+ 英文/数字分词的倒排索引，数万篇文档秒级检索。
+
+## 架构
+
+![架构图](./docs/architecture.svg)
 
 ## 环境要求
 
@@ -100,7 +106,12 @@ Windows 用户也可直接双击 `start.cmd`。
 ├─ start.cmd          # Windows 启动脚本
 ├─ package.json
 ├─ LICENSE
+├─ CHANGELOG.md
+├─ CONTRIBUTING.md
+├─ README.md / README.en.md
 ├─ .gitignore
+├─ docs/
+│  └─ architecture.svg # 架构图
 ├─ public/
 │  ├─ index.html      # 前端界面
 │  ├─ styles.css
@@ -124,4 +135,8 @@ Windows 用户也可直接双击 `start.cmd`。
 
 ## 参与贡献
 
-欢迎提交 Issue / PR：新增功能、优化检索排序、完善多语言分词、补充文档等。
+欢迎提交 Issue / PR：新增功能、优化检索排序、完善多语言分词、补充文档等。详见 [贡献指南](./CONTRIBUTING.md)。
+
+## 更新日志
+
+见 [CHANGELOG.md](./CHANGELOG.md)。
