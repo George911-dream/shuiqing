@@ -1,0 +1,24 @@
+{
+  "name": "shuiqing",
+  "version": "1.0.0",
+  "description": "税擎 (ShuiQing) · 零依赖的税务知识库检索与 AI 问答（RAG）工作台 — Tax Knowledge Workbench",
+  "main": "server.js",
+  "type": "commonjs",
+  "license": "MIT",
+  "keywords": [
+    "tax",
+    "knowledge-base",
+    "deepseek",
+    "rag",
+    "full-text-search",
+    "workbench",
+    "税务",
+    "税擎"
+  ],
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

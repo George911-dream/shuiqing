@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>税擎 · 税务知识库工作台</title>
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">税</div>
+    <div class="brand-text">
+      <h1>税擎 <span class="brand-en">ShuiQing</span></h1>
+      <span id="statusLine" class="status">正在加载知识库…</span>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <label class="field">
+      <span>模型</span>
+      <select id="modelSelect">
+        <option value="deepseek-chat">deepseek-chat</option>
+        <option value="deepseek-reasoner">deepseek-reasoner</option>
+      </select>
+    </label>
+    <label class="field">
+      <span>API Key</span>
+      <input id="apiKey" type="password" placeholder="sk-... 仅保存在本地浏览器" autocomplete="off" spellcheck="false" />
+    </label>
+    <button id="toggleKey" class="ghost-btn" title="显示/隐藏">显示</button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="side-head">
+      <h2>知识库导航</h2>
+      <button id="resetFilter" class="link-btn">清除筛选</button>
+    </div>
+    <div id="overview" class="overview"></div>
+    <nav id="tree" class="tree"></nav>
+  </aside>
+
+  <main class="main">
+    <div class="tabs">
+      <button class="tab active" data-tab="search">检索</button>
+      <button class="tab" data-tab="ask">AI 问答</button>
+      <div id="filterChips" class="filter-chips"></div>
+    </div>
+
+    <section id="panel-search" class="panel active">
+      <div class="searchbar">
+        <input id="searchInput" type="search" placeholder="输入关键词检索政策、问答、案例、裁判或公告，例如：留抵退税 条件" autocomplete="off" />
+        <button id="searchBtn" class="primary-btn">检索</button>
+      </div>
+      <div class="hint">
+        提示：支持中文关键词、文号（如 2026年第19号）、公司名/股票代码等。
+        <span id="searchMeta" class="search-meta"></span>
+      </div>
+      <div id="results" class="results"></div>
+    </section>
+
+    <section id="panel-ask" class="panel">
+      <div id="chat" class="chat">
+        <div class="chat-empty">
+          <h3>基于知识库的智能问答</h3>
+          <p>提问后，工作台会先在全部税务资料中检索相关依据，再交由 DeepSeek 汇总作答，并给出资料出处。</p>
+          <div class="samples">
+            <button class="sample">2026年增值税法施行后，小规模纳税人的起征点标准是多少？</button>
+            <button class="sample">企业申请增值税期末留抵退税需要满足哪些条件？</button>
+            <button class="sample">父母把住房无偿赠与子女，双方需要缴纳哪些税？</button>
+            <button class="sample">取得虚开增值税专用发票会被如何处理？</button>
+          </div>
+        </div>
+      </div>
+      <div class="askbar">
+        <textarea id="questionInput" rows="2" placeholder="输入税务问题，Enter 发送，Shift+Enter 换行"></textarea>
+        <button id="askBtn" class="primary-btn">发送</button>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div id="docModal" class="modal hidden">
+  <div class="modal-backdrop"></div>
+  <div class="modal-body">
+    <div class="modal-head">
+      <div>
+        <h2 id="docTitle">文档</h2>
+        <div id="docMeta" class="doc-meta"></div>
+      </div>
+      <button id="closeModal" class="ghost-btn">关闭</button>
+    </div>
+    <div id="docContent" class="doc-content"></div>
+  </div>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>
